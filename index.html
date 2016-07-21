@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Table Angular</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Students</h1>
+		<table class="table table-bordered" ng-controller="Students">
+			<thead>
+				<th ng-click="changeOrder()">Name <i class="glyphicon glyphicon-sort small"></i></th>
+				<th>Mail</th>
+				<th>GitHub</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="student in students | orderBy : order">
+					<td>{{student.name}}</td>
+					<td><a href="mailto:{{student.email}}">{{student.email}}</a></td>
+					<td><a href="{{student.github}}">{{student.github}}</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+​	<script src="js/app.js"></script>
+	<script src="js/controller.js"></script>
+</body>
+</html>
